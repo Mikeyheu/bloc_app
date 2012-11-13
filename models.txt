@@ -2,11 +2,7 @@ User (Devise)
 	name
 	email
 	password
-
-Admin
-	name
-	email
-	password
+	admin
 
 Site
 	name (i.e. http://sitename.clickbooq.com)
@@ -34,13 +30,14 @@ CustomSettings (can override template settings)
 	custom_settings
 
 Page
+	folder_id
 	site_id
 	title
 	page_type (folder, content_page, collection, archive, lightbox, link)
 	position
 
-Folder < Page
-	private
+Folder
+	visible (true or false)
 
 ContentPage < Page
 	seo_title
@@ -50,8 +47,18 @@ ContentPage < Page
 	settings
 
 Collection < Page
+	image_id
 	collection_type (archive, gallery, lightbox)
-	private (true or false)
+	position
+	title
+
+Gallery < Collection (these are public portfolios visible in the nav menu)
+	seo_title
+	permalink
+	meta_tags
+	meta_description
+
+Archive < Collection (these are image collections only accessible via the user cms)
 	position
 	title
 	seo_title
@@ -59,9 +66,7 @@ Collection < Page
 	meta_tags
 	meta_description
 
-Archive < Page
-
-Lightbox < Page
+Lightbox < Collection (private portfolios not visible via the nav menu)
 	password_required
 	password
 	permalink
@@ -80,12 +85,13 @@ Image
 	small_url
 	med_url
 	large_url
+	archive_id
 
 CollectionImage < Image
 	collection_id
 	
 ContentPageImage < Image
-	page_id
+	content_page_id
 	x
 	y
 	width
