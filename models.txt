@@ -1,0 +1,78 @@
+User
+	name
+	email
+	password
+
+Admin
+	name
+	email
+	password
+
+Site
+	name (i.e. http://sitename.clickbooq.com)
+	user_id
+	template_id
+	plan_id
+
+Plan
+	type
+	price
+	term (monthly, annual)
+
+Template
+	name
+	demo_url
+	font_family
+	settings
+
+DesignSettings
+	transition
+	favicon_url
+
+SiteSettings
+
+Collection
+	type (Archive, Gallery, Lightbox)
+	visible
+
+Image
+	collection_id
+	title
+	description
+	thumb_url
+	small_url
+	med_url
+	large_url
+
+Folder
+	type
+
+Link
+	type (email or url)
+	url
+	email
+	new_window
+
+Page
+	type (content)
+	position
+	settings
+
+TextObject
+	page_id
+	x
+	y
+	width
+	height
+	content
+	z-index
+
+ImageObject
+	page_id
+	x
+	y
+	width
+	height
+	z-index
+
+

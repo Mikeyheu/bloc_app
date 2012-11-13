@@ -1,0 +1,55 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+  <meta charset="utf-8">  
+  <title>Portfolio App Sign Up</title>  
+  <meta name="description" content="Portfolio App">  
+  <meta name="author" content="Michael Heu"> 
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!--[if lt IE 9]>  
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+  <![endif]-->  
+</head>  
+<body>  
+  <div class="header">
+    <div id="primary-navbar" class="navbar primary-navbar">
+      <a class="logo" href="#">Portfolio App</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">        
+     <div class="row">
+      <div class="span6 offset3">
+
+        <h1>Sign Up</h1>
+
+        <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
+          <div class="field">
+            <label for="user_sitename">Sitename</label>
+            <input id="user_sitename" name="user[username]" size="30" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="user_email">Email</label>
+            <input id="user_email" name="user[email]" size="30" type="text" />
+          </div>
+
+          
+          <div class="field">
+            <label for="user_password">Password</label>
+            <input id="user_password" name="user[password]" size="30" type="password" />
+          </div>
+          <div class="field">
+            <label for="user_password_confirmation">Password confirmation</label>
+            <input id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password" />
+          </div>
+          <div class="actions"><input name="commit" type="submit" value="Create User" /></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>  
+</html>

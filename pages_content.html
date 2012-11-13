@@ -1,0 +1,383 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+  <meta charset="utf-8">  
+  <title>Portfolio App</title>  
+  <meta name="description" content="Portfolio App">  
+  <meta name="author" content="Michael Heu"> 
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/jquery-ui-1.9.1.custom.css">
+  <link rel="stylesheet" href="css/layout-default-latest.css">
+  <link rel="stylesheet" href="css/bootstrap-custom.css">
+  <link rel="stylesheet" href="css/bootstrap-button.css">
+  <link rel="stylesheet" href="css/styles-new.css">
+  <script src="js/jquery-1.8.2.js"></script>  
+  <script src="js/jquery-ui-1.9.1.custom-mike.js"></script>  
+  <script src="js/jquery.mjs.nestedSortable.js"></script>
+  <script src="js/jquery.ui.touch-punch.js"></script>
+  <script src="js/bootstrap-custom.js"></script> 
+  <script src="js/jquery.layout-latest.js"></script> 
+
+  <!--[if lt IE 9]>  
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+  <![endif]-->  
+  
+</head>  
+<body>  
+
+
+
+
+
+
+ <!-- Text Modal -->
+ <div id="textmodal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+
+  <div class="modal-body">
+    <!-- <form>
+    <div id="toolbar" style="display: none;" class= "btn-group">
+      <a class="btn" data-wysihtml5-command=​"bold" ><i class="icon-bold"></i></a>
+      <a class="btn" href="#"><i class="icon-italic"></i></a>
+      <a class="btn" href="#"><i class="icon-underline"></i></a>
+
+
+      <a class="btn" href="#"><i class="icon-list-ul"></i></a>
+      <a class="btn" href="#"><i class="icon-list-ol"></i></a>
+      <a class="btn" href="#"><i class="icon-indent-left"></i></a>
+      <a class="btn" href="#"><i class="icon-indent-right"></i></a>
+
+
+      <a class="btn" href="#"><i class="icon-align-left"></i></a>
+      <a class="btn" href="#"><i class="icon-align-center"></i></a>
+      <a class="btn" href="#"><i class="icon-align-right"></i></a>
+      <a class="btn" href="#"><i class="icon-align-justify"></i></a>
+
+      <a class="btn" href="#"><i class="icon-link"></i></a>
+      <a class="btn" href="#"><i class="icon-pencil"></i></a>
+    </div>
+
+    <textarea id="textarea" class="textarea textarea-toolbar" placeholder="Blah text ..." style="width: 524px; height: 200px" autofocus>
+      </textarea>
+    </form> -->
+
+    <form>
+      <div id="toolbar" style="display: none;" class="btn-group">
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold"></i></a>
+        <a data-wysihtml5-command="italic" class="btn"><i class="icon-italic"></i></a>
+        <a data-wysihtml5-command="underline" class="btn"><i class="icon-underline"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-list-ul"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-list-ol"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-indent-left"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-indent-right"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-align-left"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-align-center"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-align-right"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-align-justify"></i></a>
+        <a data-wysihtml5-command="bold" class="btn"><i class="icon-link"></i></a>
+        <a data-wysihtml5-action="change_view" class="btn"><i class="icon-pencil"></i></a>
+      </div>
+  <textarea id="textarea" class="textarea textarea-toolbar"></textarea>
+
+</form>
+
+    
+      
+
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="save-changes" class="btn btn-primary">Save changes</button>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<!-- <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div> -->
+
+
+
+<div class="header">
+  <div id="primary-navbar" class="navbar primary-navbar">
+    <a class="logo" href="#">Portfolio App</a>
+    <ul class="nav primary-nav">
+      <li><a href="#">Design</a></li>
+      <li class="active"><a href="#about">Pages</a></li>
+      <li><a href="#contact"> Settings</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="nav-header">User</li>
+          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Log Out</a></li>
+          <li class="divider"></li>
+          <li class="nav-header">Support</li>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">User Guide</a></li>
+        </ul>
+      </li>         
+    </ul>
+  </div>
+
+  <div id="content" class="content">
+
+    <div class="left-panel">
+      <div id="secondary-navbar" class="navbar secondary-navbar">
+        <ul class="nav">
+          <!-- <li>
+            <a href="#">
+              <div class="nav-button-text">
+                <div class="icon add left"></div> 
+                <div class="icontext left"> Create</div>
+              </div>
+            </a>
+          </li> -->
+
+
+          <li class="dropdown nav-button-text">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon add left"></i><div class="icontext left"> Create <b class="caret"></b></div> </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Content Page</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Folder(Group)</a></li>
+              <li><a href="#">Link</a></li>
+
+            </ul>
+          </li>   
+
+
+
+          <li class="divider-vertical"></li>     
+        </ul>   
+        <ul class="nav">
+
+          <li>
+            <a href="#">
+              <div class="nav-button-text">
+                <div class="icon upload left"></div>
+                <div class="icontext left"> Upload</div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical"></li>        
+        </ul>
+      </div>
+
+
+
+
+      <div id="panes">
+        <div id="page-menu" class="west-center">
+          <div class="menu-title">Site Pages</div>
+          <ol class="sortable">
+
+
+            <li><div><i class="icon-nav content-page"></i><a href="#">Home</a></div></li>
+            <li class="folder">
+              <div><i class="icon-nav folder"></i><a href="#">Portfolios 1</a></div>
+              <ol>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i><a href="#">Fashion</a></div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Models</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Portrait</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Advertising</div></li>
+              </ol>
+            </li>
+            <li class="folder">
+              <div><i class="icon-nav folder"></i><a href="#">Portfolios 2</a></div>
+              <ol>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i><a href="#">Weddings</a></div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Kids</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Nude</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Other</div></li>
+              </ol>
+            </li>
+            <li class="folder">
+              <div><i class="icon-nav folder"></i>About</div>
+              <ol>
+                <li><div><i class="icon-nav content-page"></i>Biography</div></li>
+                <li><div><i class="icon-nav content-page"></i>Seminars</div></li>
+              </ol>
+            </li>
+            <li><div><i class="icon-nav link"></i>Blog</div></li>
+            <li><div><i class="icon-nav content-page"></i>Contact</div></li>
+          </ol>
+        </div>
+
+        <div id="archive-menu" class="west-south">
+          <div class="menu-title">Image Archive</div>
+          <ol class="sortable">
+            <li class="folder">
+              <div><i class="icon-nav folder"></i><a href="#">Recent Uploads</a></div>
+              <ol>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i><a href="#">10-26-2012</a></div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>10-24-2012</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>10-20-2012</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Gap Model Shoot</div></li>
+              </ol>
+            </li>
+            <li class="folder">
+              <div><i class="icon-nav folder"></i><a href="#">My Shots</a></div>
+              <ol>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i><a href="#">Fashion Random</a></div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Random</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Portraits</div></li>
+                <li><div class="dropzone"><i class="icon-nav gallery"></i>Advertising Shots</div></li>
+              </ol>
+            </li>
+
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+
+      <div class="navbar secondary-navbar">
+        <ul class="nav">
+          <li>
+            <a href="#" class="navbutton">
+              <div id="caret" class="nav-button">
+                <div class="icon caret-left"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical"></li>
+        </ul>
+        <ul class="nav nav-right">
+          <li class="divider-vertical"></li>
+          <li class="dropdown nav-button">
+            <a href="#" class="dropdown-toggle navbutton" data-toggle="dropdown" rel="tooltip" data-original-title="Add Element"><div class="icon add"></div> </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Text Element</a></li>
+              <li><a href="#">Image Element</a></li>
+            </ul>
+          </li>   
+          <li class="divider-vertical"></li>
+          <li class="divButton">
+
+
+            <a href="#myModal" data-toggle="modal">
+              <div id="settings" class="nav-button" rel="tooltip" data-original-title="Settings" >
+                <div class="icon settings"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li>
+            <a href="#" class="navbutton" rel="tooltip" data-original-title="View Site" >
+              <div id="view" class="nav-button" >
+                <div class="icon view"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li>
+            <a href="#" class="navbutton" rel="tooltip" rel="tooltip" data-original-title="Save">
+              <div id="save" class="nav-button" >
+                <div class="icon save"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li>
+            <a href="#" class="navbutton" rel="tooltip" data-original-title="Trash" >
+              <div id="trash" class="nav-button">
+                <div class="icon trash"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="tertiary-navbar" class="navbar tertiary-navbar hide">
+        <div class="nav nav-text">
+          <form id="object_form" name="object_form">
+            X: <input type="text" value ="" id="x" name="x" maxlength="5" size="4">
+            Y: <input type="text" value ="" id="y" name="y" maxlength="5" size="4">
+            W: <input type="text" value ="" id="width" name="width" maxlength="5" size="4">
+            H: <input type="text" value ="" id="height" name="height" maxlength="5" size="4">
+            <button id="update" type="button">Update</button>
+          </form>
+
+        </div>
+        <ul class="nav">
+          <li class="divider-vertical divider-gray"></li>
+          <li>
+            <a id="object-settings" href="#textmodal" data-toggle="modal">
+              <div  class="nav-button">
+                <div class="icon settings"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical divider-gray"></li>
+          <li class="dropdown nav-button">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><div class="icon stack"></div> </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Move to top</a></li>
+              <li><a href="#">Move to bottom</a></li>
+            </ul>
+          </li>   
+          <li class="divider-vertical divider-gray"></li>
+          <li>
+            <a href="#">
+              <div id="object-trash" class="nav-button">
+                <div class="icon trash"></div>
+              </div>
+            </a>
+          </li>
+          <li class="divider-vertical divider-gray"></li>
+        </ul>
+      </div>
+
+      <div class="right-inner">
+
+        <div class="element">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+        </div>
+
+        <div class="element">
+          <img src="img/ichc.jpeg">
+        </div>
+
+        <!-- <ul id="sortable" class="thumb_grid">
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/1.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/2.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/3.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/4.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/5.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/6.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/7.jpeg"></div></li>
+          <li class="drop_allowed"><div class="thumbnail"><img src ="img/8.jpeg"></div></li>
+          
+        </ul> -->
+
+      </div>
+    </div>
+
+  </div>
+  <script src="js/parser_rules/advanced.js"></script>
+  <script src="js/wysihtml5-0.3.0.js"></script> 
+  <script src="js/scripts-new.js"></script> 
+  
+  
+</body>  
+</html>
