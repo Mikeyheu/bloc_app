@@ -1,4 +1,4 @@
-User
+User (Devise)
 	name
 	email
 	password
@@ -13,39 +13,58 @@ Site
 	user_id
 	template_id
 	plan_id
+	status (trial, active, suspended)
 
-Plan
-	type
+Plan (Recurly)
+	type (trial, lite or pro)
 	price
 	term (monthly, annual)
 
-Template
+DesignTemplate
 	name
 	demo_url
-	font_family
-	settings
+	template_structure (fixed, fullscreen)
+	pro_template (true, false)
+	css_settings
 
-DesignSettings
+CustomSettings (can override template settings)
+	name
 	transition
 	favicon_url
+	custom_settings
 
-SiteSettings
-
-Collection
-	type (Archive, Gallery, Lightbox)
-	visible
-
-Image
-	collection_id
+Page
+	site_id
 	title
-	description
-	thumb_url
-	small_url
-	med_url
-	large_url
+	page_type (folder, content_page, collection, archive, lightbox, link)
+	position
 
-Folder
-	type
+Folder < Page
+	private
+
+ContentPage < Page
+	seo_title
+	permalink
+	meta_tags
+	meta_description
+	settings
+
+Collection < Page
+	collection_type (archive, gallery, lightbox)
+	private (true or false)
+	position
+	title
+	seo_title
+	permalink
+	meta_tags
+	meta_description
+
+Archive < Page
+
+Lightbox < Page
+	password_required
+	password
+	permalink
 
 Link
 	type (email or url)
@@ -53,12 +72,28 @@ Link
 	email
 	new_window
 
-Page
-	type (content)
-	position
-	settings
+Image
+	title
+	description
+	keywords
+	thumb_url
+	small_url
+	med_url
+	large_url
 
-TextObject
+CollectionImage < Image
+	collection_id
+	
+ContentPageImage < Image
+	page_id
+	x
+	y
+	width
+	height
+	z-index
+	link_url
+
+ContentPageText
 	page_id
 	x
 	y
@@ -67,12 +102,10 @@ TextObject
 	content
 	z-index
 
-ImageObject
-	page_id
-	x
-	y
-	width
-	height
-	z-index
+
+
+
+
+
 
 
